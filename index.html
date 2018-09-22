@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>Train Scheduler</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="assets/css/style.css">
@@ -12,10 +12,65 @@
     </head>
     <body>
        <!-- Header/Title/Descriptions -->
+       <div class="container-fluid">
+           <div class="row">
+               <div class="col-md-12 page-header">
+                   Check Out Deez Trains
+               </div>
+           </div>
+       </div>
        <!-- Train schedule displays -->
+       <div class="container">
+           <div class="row">
+               <div class="col-md-12 box-header">
+                   Train Schedule
+               </div>
+           </div>
+           <div class="row" id="schedule-headers">
+                <div class="col-md-2 header">Train Name</div>
+                <div class="col-md-2 header">Destination</div>
+                <div class="col-md-2 header">Frequency (min)</div>
+                <div class="col-md-2 header">Next Arrival</div>
+                <div class="col-md-2 header">Minutes Away</div>
+                <div class="col-md-2 header"></div>
+           </div>
+       </div>
        <!-- API call to train data -->
        <!-- Form to add new train data -->
+    <div class="container">
+       <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">Add a Train</h5>
+                      <form>
+                        <div class="form-group">
+                          <label for="employee-name">Train Name</label>
+                          <input type="text" class="form-control" id="employee-name" placeholder="Train name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="employee-role">Destination</label>
+                            <input type="text" class="form-control" id="employee-role" placeholder="City, State" required>
+                          </div>
+                        <div class="form-group">
+                            <label for="start-date">First Train Time (military time)</label>
+                            <input type="text" class="form-control" id="start-date" placeholder="Ex: 14:30" required>
+                          </div>
+                        <div class="form-group">
+                            <label for="monthly-rate">Frequency (min)</label>
+                            <input type="text" class="form-control" id="monthly-rate" placeholder="Ex: 30" required>
+                          </div>
+                        <button type="submit" class="btn btn-primary header">Submit</button>
+                      </form>
+    
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
         
         <script src="assets/javascript/app.js" async defer></script>
+        <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
+
     </body>
 </html>

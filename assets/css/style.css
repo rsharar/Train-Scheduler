@@ -1,0 +1,17 @@
+.page-header{
+    font-size: 36px;
+    background-color: darkgray;
+    color: black;
+    text-align: center;
+}
+
+.box-header{
+    font-weight: bold;
+    background-color: blue;
+    color: white;
+}
+
+.header{
+    font-weight: bold;
+    text-align: center;
+}
