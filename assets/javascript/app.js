@@ -11,7 +11,7 @@
 // user enters frequency --> data val: integers only
   // store in variable userTrainFrequency
 
-// create object userTrainInput
+// create object userTrainInput with key value pairs using variables above
 
 // onclick of submit button:
   // if destination and train name does not exist already
@@ -64,10 +64,18 @@ var userTrainInput = {};
 
 //---------- FUNCTIONS ---------//
 
-
+function addTrain(){
+  $("#submit-btn").on('click',function(){
+    console.log('test')
+  var userTrainName = $("#train-name").val().trim();
+    console.log(userTrainName);
+})
+}
 
 
 
 //---------- EVENT LISTENERS ---------//
 
-
+$(document).ready(function(){
+  addTrain();
+});
