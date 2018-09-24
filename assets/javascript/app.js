@@ -66,9 +66,20 @@ var userTrainInput = {};
 
 function addTrain(){
   $("#submit-btn").on('click',function(){
-    console.log('test')
+  
+    // event.preventDefault();
+
   var userTrainName = $("#train-name").val().trim();
     console.log(userTrainName);
+
+  var userTrainDestination = $("#destination").val().trim();
+    console.log(userTrainDestination);
+
+  var userFirstTrainTime = $("#first-train-time").val().trim();
+    console.log(userFirstTrainTime);
+
+  var userTrainFrequency = $("#frequency").val().trim();
+    console.log(userTrainFrequency);
 })
 }
 
