@@ -15,3 +15,16 @@
     font-weight: bold;
     text-align: center;
 }
+
+#schedule-header, .card-title{
+    font-weight: bold;
+    text-align: center;
+    font-size: 24px;
+    color: white;
+    background-color: lightblue;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+
+
