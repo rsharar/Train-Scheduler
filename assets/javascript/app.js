@@ -61,6 +61,9 @@ var userTrainFrequency;
 // userTrainInput object
 var userTrainInput = {};
 
+// firebase DB reference
+var database = firebase.database();
+
 
 //---------- FUNCTIONS ---------//
 
@@ -81,20 +84,19 @@ function addTrain(){
   var userTrainFrequency = $("#frequency").val().trim();
     console.log(userTrainFrequency);
 
-  trainDataPush();
-
-})
-}
-
-function trainDataPush(){
-  firebase.database().ref().push({
-    name: userTrainName,
-    destination: userTrainDestination,
-    time: userFirstTrainTime,
-    frequency: userTrainFrequency
+  database.ref().push({
+      name: userTrainName,
+      destination: userTrainDestination,
+      time: userFirstTrainTime,
+      frequency: userTrainFrequency
   });
-  console.log(snapshot)
-
+  
+   // Clears all of the text-boxes
+   $("#train-name").val("");
+   $("#destination").val("");
+   $("#first-train-time").val("");
+   $("#frequency").val("");
+})
 }
 
 //---------- EVENT LISTENERS ---------//
