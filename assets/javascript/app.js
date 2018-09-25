@@ -105,11 +105,18 @@ function populateTrainData(){
   database.ref().on("child_added", function(snapshot){
     console.log(snapshot.val());
 
+  // get currenttime
+  var currentTime = moment().format("HH:mm")
+  console.log(currentTime);
+
   // all values from DB stored in variables
   var userTrainName = snapshot.val().name;
   var userTrainDestination = snapshot.val().destination;
   var userFirstTrainTime = snapshot.val().time;
   var userTrainFrequency = snapshot.val().frequency;
+
+
+  var minutesAway;
 
   // new row selector for each form entry
   var newRow = $("<tr>").append(
@@ -117,12 +124,16 @@ function populateTrainData(){
     $("<td>").text(userTrainDestination),
     $("<td>").text(userFirstTrainTime),
     $("<td>").text(userTrainFrequency),
+    $("<td>").text(minutesAway),
   );
   console.log(newRow);
   
   $("tbody").append(newRow);
   })
 }
+
+var currentTime = moment().format("HH:mm")
+console.log(currentTime);
 
 //---------- EVENT LISTENERS ---------//
 
