@@ -64,9 +64,10 @@ var userTrainInput = {};
 // firebase DB reference
 var database = firebase.database();
 
-
 //---------- FUNCTIONS ---------//
 
+
+// when user submits train form, data pushed as new obj to firebase DB and form fields clear
 function addTrain(){
   $("#submit-btn").on('click',function(event){
   
@@ -90,7 +91,7 @@ function addTrain(){
       time: userFirstTrainTime,
       frequency: userTrainFrequency
   });
-  
+
    // Clears all of the text-boxes
    $("#train-name").val("");
    $("#destination").val("");
@@ -99,8 +100,33 @@ function addTrain(){
 })
 }
 
+// function to pull data from firebase DB and populate HTML
+function populateTrainData(){
+  database.ref().on("child_added", function(snapshot){
+    console.log(snapshot.val());
+
+  // all values from DB stored in variables
+  var userTrainName = snapshot.val().name;
+  var userTrainDestination = snapshot.val().destination;
+  var userFirstTrainTime = snapshot.val().time;
+  var userTrainFrequency = snapshot.val().frequency;
+
+  // new row selector for each form entry
+  var newRow = $("<tr>").append(
+    $("<td>").text(userTrainName),
+    $("<td>").text(userTrainDestination),
+    $("<td>").text(userFirstTrainTime),
+    $("<td>").text(userTrainFrequency),
+  );
+  console.log(newRow);
+  
+  $("tbody").append(newRow);
+  })
+}
+
 //---------- EVENT LISTENERS ---------//
 
 $(document).ready(function(){
   addTrain();
+  populateTrainData();
 });
