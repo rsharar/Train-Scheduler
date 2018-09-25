@@ -106,8 +106,10 @@ function populateTrainData(){
     console.log(snapshot.val());
 
   // get currenttime
-  var currentTime = moment().format("HH:mm")
+  var currentTime = moment().format("X");
   console.log(currentTime);
+
+
 
   // all values from DB stored in variables
   var userTrainName = snapshot.val().name;
@@ -115,8 +117,10 @@ function populateTrainData(){
   var userFirstTrainTime = snapshot.val().time;
   var userTrainFrequency = snapshot.val().frequency;
 
+  // calculate minutes away
+  var minutesAway = currentTime - userFirstTrainTime;
+  console.log(minutesAway);
 
-  var minutesAway;
 
   // new row selector for each form entry
   var newRow = $("<tr>").append(
