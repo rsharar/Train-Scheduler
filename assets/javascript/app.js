@@ -82,25 +82,32 @@ function populateTrainData(){
   database.ref().on("child_added", function(snapshot){
     console.log(snapshot.val());
 
-  // get currenttime
-  var currentTime = moment().format("X");
-  console.log(currentTime);
-
-  //TODO: 
-  // --calculate min away
-
-  // --calculate next arrival
-    // 
 
   // all values from DB stored in variables
   var userTrainName = snapshot.val().name;
   var userTrainDestination = snapshot.val().destination;
   var userFirstTrainTime = snapshot.val().time;
+  // var nextArrival;
+  var minAway;
   var userTrainFrequency = snapshot.val().frequency;
+  console.log()
+  
+  // get currenttime
+  var currentTime = moment().format("X");
+  console.log(parseInt(currentTime));
 
-  // calculate minutes away
-  var minutesAway = currentTime - userFirstTrainTime;
-  console.log(minutesAway);
+    
+  //TODO: 
+  // --calculate nextArrival
+    // nextArrival = currentTime + frequency
+    var nextArrival = currentTime + userTrainFrequency;
+    console.log(nextArrival);
+  // --calculate minAway
+    // check nextArrival
+    // check currentTime
+    // minAway = nextArrival - currentTime
+
+
 
 
   // new row selector for each form entry
@@ -108,8 +115,8 @@ function populateTrainData(){
     $("<td>").text(userTrainName),
     $("<td>").text(userTrainDestination),
     $("<td>").text(userFirstTrainTime),
-    $("<td>").text(userTrainFrequency),
-    $("<td>").text(minutesAway),
+    $("<td>").text(nextArrival),
+    $("<td>").text(minAway),
   );
   console.log(newRow);
   
