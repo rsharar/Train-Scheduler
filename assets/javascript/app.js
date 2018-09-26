@@ -1,24 +1,5 @@
 // pseudo code
 
-// FORM SUBMISSION
-
-// user enters data for train name --> no data val
-  // store in variable userTrainName
-// user enters destination --> data val: no integers
-  // store in variable userTrainDestination
-// user enters first train time --> data val: military time only
-  // store in variable userFirstTrainTime
-// user enters frequency --> data val: integers only
-  // store in variable userTrainFrequency
-
-// create object userTrainInput with key value pairs using variables above
-
-// onclick of submit button:
-  // if destination and train name does not exist already
-  // -- push data to firebase as new object
-  // -- populate data as new row in HTML
-
-
 // CALCULATE MINAWAY
 // check current time
 // use moment.js to determine # of mins from what user entered
@@ -26,10 +7,6 @@
   // next arrival === firstTrainTime
 // else if (firstTrainTime < currentTime) 
   // nextArrival = currentTime + frequency
-
-//PULL TRAIN INFO FROM DB TO HTML
-
-
 
 // Initialize Firebase
   var config = {
@@ -109,7 +86,11 @@ function populateTrainData(){
   var currentTime = moment().format("X");
   console.log(currentTime);
 
+  //TODO: 
+  // --calculate min away
 
+  // --calculate next arrival
+    // 
 
   // all values from DB stored in variables
   var userTrainName = snapshot.val().name;
