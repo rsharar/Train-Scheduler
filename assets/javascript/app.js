@@ -90,18 +90,19 @@ function populateTrainData(){
   // var nextArrival;
   var minAway;
   var userTrainFrequency = snapshot.val().frequency;
-  console.log()
   
   // get currenttime
   var currentTime = moment().format("X");
-  console.log(parseInt(currentTime));
+  console.log("currentTime: "+(currentTime));
 
     
   //TODO: 
   // --calculate nextArrival
     // nextArrival = currentTime + frequency
+    // userTrainFrequency = userTrainFrequency 
+    console.log(typeof(parseInt(userFirstTrainTime)));
     var nextArrival = currentTime + userTrainFrequency;
-    console.log(nextArrival);
+    console.log("nextArrival: " + nextArrival);
   // --calculate minAway
     // check nextArrival
     // check currentTime
