@@ -41,6 +41,9 @@ var userTrainInput = {};
 // firebase DB reference
 var database = firebase.database();
 
+var nextArrival;
+var minAway; 
+
 //---------- FUNCTIONS ---------//
 
 
@@ -80,42 +83,46 @@ function addTrain(){
 // function to pull data from firebase DB and populate HTML
 function populateTrainData(){
   database.ref().on("child_added", function(snapshot){
-    console.log(snapshot.val());
+    // console.log(snapshot.val());
 
 
   // all values from DB stored in variables
   var userTrainName = snapshot.val().name;
   var userTrainDestination = snapshot.val().destination;
   var userFirstTrainTime = snapshot.val().time;
-  // var nextArrival;
-  var minAway;
   var userTrainFrequency = snapshot.val().frequency;
-  
-  // get currenttime
-  var currentTime = moment().format("X");
-  console.log("currentTime: "+(currentTime));
+  var currentTime = moment().format("HH:mm");
+  console.log(currentTime)
+  console.log(userFirstTrainTime)
 
-    
+
+  // return moment(moment(startTime,"hh:mm").diff(moment(endTime,"hh:mm"))).format("hh:mm"); 
+
   //TODO: 
   // --calculate nextArrival
+    // check currentTime
+      // if (currentTime < userFirstTrainTime){
+      //   nextArrival =  userFirstTrainTime;
+      //   parseInt(userFirstTrainTime)
+      // }
+    // else {
+    // 
+    //}
     // nextArrival = currentTime + frequency
     // userTrainFrequency = userTrainFrequency 
-    console.log(typeof(parseInt(userFirstTrainTime)));
-    var nextArrival = currentTime + userTrainFrequency;
-    console.log("nextArrival: " + nextArrival);
+
+  // TODO:
   // --calculate minAway
     // check nextArrival
     // check currentTime
     // minAway = nextArrival - currentTime
 
 
-
-
   // new row selector for each form entry
   var newRow = $("<tr>").append(
     $("<td>").text(userTrainName),
     $("<td>").text(userTrainDestination),
-    $("<td>").text(userFirstTrainTime),
+    $("<td>").text(userTrainFrequency),
     $("<td>").text(nextArrival),
     $("<td>").text(minAway),
   );
@@ -125,8 +132,6 @@ function populateTrainData(){
   })
 }
 
-var currentTime = moment().format("HH:mm")
-console.log(currentTime);
 
 //---------- EVENT LISTENERS ---------//
 
