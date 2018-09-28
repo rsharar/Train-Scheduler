@@ -1,8 +1,13 @@
+body {
+    background-image: url(../images/train.jpg);
+}
+
 .page-header{
     font-size: 36px;
-    background-color: darkgray;
-    color: black;
+    color: white;
     text-align: center;
+    height: 200px;
+    padding-top: 70px;
 }
 
 .box-header{
@@ -21,9 +26,14 @@
     text-align: center;
     font-size: 24px;
     color: white;
-    background-color: lightblue;
+    background-color: #4b4b4b;
     padding-top: 10px;
     padding-bottom: 10px;
+}
+
+#schedule{
+    border: 1px solid lightgray;
+    margin-bottom: 20px;
 }
 
 
