@@ -91,32 +91,29 @@ function populateTrainData(){
   var userTrainDestination = snapshot.val().destination;
   var userFirstTrainTime = snapshot.val().time;
   var userTrainFrequency = snapshot.val().frequency;
-  var currentTime = moment().format("HH:mm");
-  console.log(currentTime)
-  console.log(userFirstTrainTime)
 
+  // convert firstTrainTime to military time format
+  var firstTrainTimeConverted = moment(userFirstTrainTime, "HH:mm")
+  console.log(firstTrainTimeConverted);
 
-  // return moment(moment(startTime,"hh:mm").diff(moment(endTime,"hh:mm"))).format("hh:mm"); 
+  // current time
+  var currentTime = moment().format("hh:mm");
+  console.log(currentTime);
 
-  //TODO: 
-  // --calculate nextArrival
-    // check currentTime
-      // if (currentTime < userFirstTrainTime){
-      //   nextArrival =  userFirstTrainTime;
-      //   parseInt(userFirstTrainTime)
-      // }
-    // else {
-    // 
-    //}
-    // nextArrival = currentTime + frequency
-    // userTrainFrequency = userTrainFrequency 
+  // difference between times
+  var diffTime = moment().diff(moment(firstTrainTimeConverted),'minutes');
+  console.log(diffTime);
 
-  // TODO:
-  // --calculate minAway
-    // check nextArrival
-    // check currentTime
-    // minAway = nextArrival - currentTime
+  // time apart (with remainder)
+  var trainRemainder = diffTime % userTrainFrequency
+  console.log(trainRemainder);
 
+  // minAway
+  var minAway = userTrainFrequency - trainRemainder
+  console.log(minAway);
+
+  var nextArrival = moment().add(minAway, "minutes");
+  console.log(moment(nextArrival).format("hh:mm"));
 
   // new row selector for each form entry
   var newRow = $("<tr>").append(
