@@ -112,7 +112,7 @@ function populateTrainData(){
   var minAway = userTrainFrequency - trainRemainder
   console.log(minAway);
 
-  var nextArrival = moment().add(minAway, "minutes");
+  var nextArrival = moment().add(minAway, "minutes").format("hh:mm");
   console.log(moment(nextArrival).format("hh:mm"));
 
   // new row selector for each form entry
